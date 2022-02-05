@@ -2,7 +2,7 @@
 Cross Platform LLVM-based C Compiler
 
 ## Todo
-- [ ] Lexer
+- [x] Lexer
 - [ ] Parser
 - [ ] Semantic Analysis
 - [ ] LLVM IR
