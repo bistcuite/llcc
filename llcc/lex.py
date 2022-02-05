@@ -20,7 +20,8 @@ class CLexer(Lexer):
         INT,CHAR,VOID,BOOL,
         TRUE,FALSE,
         NOT,AND,OR,
-        COMMENT,
+        COMMENT,HASHTAG,
+        INCLUDE,
     }
 
     NAME = r'[a-zA-Z_][a-zA-Z0-9_]*'
@@ -48,6 +49,7 @@ class CLexer(Lexer):
     NOT = r'!'
     AND = r'&&'
     OR = r'\|\|'
+    HASHTAG = r'\#'
 
     NAME['if'] = IF
     NAME['else'] = ELSE
@@ -60,7 +62,8 @@ class CLexer(Lexer):
     NAME['bool'] = BOOL
     NAME['true'] = TRUE
     NAME['false'] = FALSE
-
+    NAME['include'] = INCLUDE
+    
     @_(r'\n+')
     def ignore_newline(self,t):
         self.lineno += t.value.count('\n')
